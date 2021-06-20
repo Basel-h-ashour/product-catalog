@@ -1,17 +1,19 @@
-# Getting the project started
+# Products Catalog
 
 First, the project has to be started. Then, it has to be initialized with data. 
 
 
-# 1) Getting the project started
+## 1) Getting the project started
 
 There are two ways to start the project 
 
-## 1.1) Using docker
+### 1.1) Using docker
 
-### cd into the project root (where docker-compose.yml is)
+cd into the project root (where docker-compose.yml is)
 
-### run `docker-compose build`
+```bash
+run `docker-compose build`
+```
 
 then,
 
@@ -19,7 +21,7 @@ then,
 
 This will start the Django backend and react frontend and link them together
 
-## 1.2) Using virtual environment
+### 1.2) Using virtual environment
 
 ### create a virtual environment
 
