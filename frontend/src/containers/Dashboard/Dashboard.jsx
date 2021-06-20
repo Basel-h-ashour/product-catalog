@@ -57,7 +57,7 @@ const Dashboard = (props) => {
     });
 
     return (
-        !allowView ? (
+        allowView ? (
             <div className={classes.Dashboard}>
                 <div className="container-fluid p-5">
                     <div className="row justify-content-center">
