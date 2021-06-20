@@ -28,7 +28,7 @@ const Login = (props) => {
     const formData = new FormData();
     formData.append("email", data.email);
     formData.append("password", data.password);
-    
+
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -46,18 +46,16 @@ const Login = (props) => {
       .then(response => response.json())
       .then(jsondata => {
         console.log(jsondata.non_field_errors)
-        if (!jsondata.token)
-        {
+        if (!jsondata.token) {
           setLoginError(jsondata.non_field_errors);
           setShowErrors(classes.Visible);
         }
-        else
-        {
+        else {
           setLoginError("");
           setShowErrors(classes.Hidden);
+          localStorage.setItem("token", jsondata.token)
           props.setLoggedIn(true)
         }
-        localStorage.setItem("token", jsondata.token)
       })
       .catch((error) => {
         console.log(error)

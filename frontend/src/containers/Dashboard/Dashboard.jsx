@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+import Product from '../../components/Product/Product'
 
 import classes from './Dashboard.module.css';
+
 
 const initialData = {
     name: "",
@@ -12,10 +15,11 @@ const initialData = {
 
 const Dashboard = (props) => {
 
-    const [products, setProducts] = useState({});
     const [token, setToken] = useState(localStorage.getItem("token"))
     const [allowView, setAllowView] = useState(false)
     const [data, setData] = useState(initialData)
+
+    const products = useRef(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,6 +31,7 @@ const Dashboard = (props) => {
 
         console.log(data)
     };
+
 
     useEffect(() => {
         const requestOptions = {
@@ -48,13 +53,14 @@ const Dashboard = (props) => {
             })
             .then(jsondata => {
                 console.log(jsondata)
+                products.current = jsondata;
                 setAllowView(true)
             })
             .catch((error) => {
                 console.log(error)
                 setAllowView(false)
             });
-    });
+    }, []);
 
     return (
         allowView ? (
@@ -135,7 +141,11 @@ const Dashboard = (props) => {
                                 </div>
                             </div>
                             <div className={classes.Products}>
-
+                                {console.log(products) }
+                                { products.current.map((value, index) => {
+                                    console.log(value, index)
+                                    return <Product key={index} productData={value} />
+                                }) }
                             </div>
                         </div>
                     </div>

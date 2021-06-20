@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <div>
-      {loggedIn ? <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> : <Dashboard />}
+      {!loggedIn ? <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> : <Dashboard />}
     </div>
   );
 }
