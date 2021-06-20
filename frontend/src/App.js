@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Login from './containers/Login/Login'
+import Dashboard from './containers/Dashboard/Dashboard'
 
 const App = () => {
 
@@ -7,7 +8,7 @@ const App = () => {
 
   return (
     <div>
-      {!loggedIn ? <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> : <p>dashboard</p>}
+      {loggedIn ? <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> : <Dashboard />}
     </div>
   );
 }

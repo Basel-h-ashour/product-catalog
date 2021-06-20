@@ -25,8 +25,6 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // localstorage.setItem()
-    // fetch <= authorization token header
     const formData = new FormData();
     formData.append("email", data.email);
     formData.append("password", data.password);
@@ -64,20 +62,6 @@ const Login = (props) => {
       .catch((error) => {
         console.log(error)
       });
-      
-    // Axios.post(API.users.login, formData)
-    //   .then((response) => {
-    //     // console.log(response);
-    //     if (!response.data.isAuthenticated) {
-    //       setLoginError(response.data.message);
-    //       setShowErrors(classes.Visible);
-    //     } else {
-    //      set logged in to true
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     viewError(true);
-    //   });
   };
 
   return (

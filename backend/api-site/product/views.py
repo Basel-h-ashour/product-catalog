@@ -13,7 +13,8 @@ class ProductViewSet(viewsets.GenericViewSet,
                             mixins.ListModelMixin,
                             mixins.CreateModelMixin,
                             mixins.RetrieveModelMixin,
-                            mixins.UpdateModelMixin):
+                            mixins.UpdateModelMixin,
+                            mixins.DestroyModelMixin):
     """exposes endpoints for creating and listing products"""
 
     queryset = Product.objects.all()
