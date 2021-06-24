@@ -60,7 +60,7 @@ const Dashboard = (props) => {
                 console.log(error)
                 setAllowView(false)
             });
-    });
+    }, [data]);
 
     return (
         allowView ? (
